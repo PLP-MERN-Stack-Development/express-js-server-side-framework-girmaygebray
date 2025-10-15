@@ -1,62 +1,67 @@
-# Express.js RESTful API Assignment
+🚂 Week 2: Express.js – RESTful API Project
+📘 Overview
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+This project is part of Week 2: Express.js – Server-Side Framework.
+The goal is to build a fully functional RESTful API using Express.js, implementing standard CRUD operations, middleware, error handling, and advanced features like filtering, pagination, and search.
 
-## Assignment Overview
+🚀 Features
+🧱 Core CRUD
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+GET /api/products → List all products (with pagination & filtering)
 
-## Getting Started
+GET /api/products/:id → Retrieve a specific product by ID
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+POST /api/products → Create a new product
 
-## Files Included
+PUT /api/products/:id → Update a product
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+DELETE /api/products/:id → Remove a product
 
-## Requirements
+🧩 Middleware
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+Logger: Logs method, URL, and timestamp for each request
 
-## API Endpoints
+Authentication: Checks for a valid x-api-key header
 
-The API will have the following endpoints:
+Validation: Ensures product data integrity before creation or update
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+Global Error Handler: Catches and formats all server errors
 
-## Submission
+⚙️ Advanced Features
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Filtering: Filter products by category using query parameters
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+Pagination: Paginate results with page and limit
 
-## Resources
+Search: Find products by name
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+Statistics: Get product counts by category
+
+🏗️ Project Structure
+express-api/
+│
+├── server.js                 # Entry point
+│
+├── routes/
+│   └── products.js           # Product routes (CRUD & advanced features)
+│
+├── controllers/
+│   └── productsController.js # Business logic for each endpoint
+│
+├── middleware/
+│   ├── logger.js             # Logs requests
+│   ├── auth.js               # API key authentication
+│   └── validateProduct.js    # Request validation
+│
+└── utils/
+    └── errors.js             # Custom error classes
+
+🧩 API Endpoints
+Method	Endpoint	Description
+GET	/api/products	List all products (supports filtering & pagination)
+GET	/api/products/:id	Get product by ID
+POST	/api/products	Create a new product
+PUT	/api/products/:id	Update an existing product
+DELETE	/api/products/:id	Delete a product
+GET	/api/products/search/:name	Search products by name
+GET	/api/products/stats	View product statistics (count by category)
